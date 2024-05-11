@@ -1,0 +1,24 @@
+{
+  "name": "BibliCall-Twilio",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "root",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/jshint:2": {},
+    "ghcr.io/jckimble/devcontainer-features/ngrok:3": {}
+  },
+  "postCreateCommand": "npm install",
+  "postStartCommand": "npm install -g twilio-cli && npm install dotenv && twilio plugins:install @twilio-labs/plugin-serverless  && chmod +x create-env.sh && ./create-env.sh",
+  "remoteEnv": {
+    "TWILIO_SID": "${localEnv:TWILIO_ACCOUNT_SID}",
+    "TWILIO_AUTH": "${localEnv:TWILIO_AUTH}",
+    "GROQ_API":"${localEnv:GROQ_API}"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "Twilio.vscode-twilio"
+      ]
+    }
+  }
+}

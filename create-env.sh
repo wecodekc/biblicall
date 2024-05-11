@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "TWILIO_ACCOUNT_SID=$TWILIO_ACCOUNT_SID" > .env
+echo "TWILIO_AUTH_TOKEN=$TWILIO_AUTH_TOKEN" >> .env
+echo "GROQ_API=$GROQ_API" >> .env
