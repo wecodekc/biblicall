@@ -1,6 +1,6 @@
 const Groq = require('groq-sdk');
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
-
+//Make sure to add your TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and GROQ_API to the .env file
 exports.handler = async function(context, event, callback) {
   const twiml = new VoiceResponse();
  
