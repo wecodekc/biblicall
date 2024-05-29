@@ -1,12 +1,13 @@
 const Groq = require('groq-sdk');
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 //Make sure to add your TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and GROQ_API to the .env file
+//? Event 'accept-language': 'en-US,en;q=0.9' Context: LANG: 'en_US.UTF-8',
 exports.handler = async function(context, event, callback) {
   const twiml = new VoiceResponse();
  
   try {
-    
-    const rolePrompt = "You are a database that only outputs verses from the first book of psalms in the " + 
+    //add: if the language you receive is not English, determine the language and return in the format: en-EN
+    const rolePrompt = "You are an assistant that only outputs verses from the first book of psalms in the " + 
                        "king james version of the bible. If only one verse is given, you only output that verse. " +
                        "If a range of verses is given you only output that range. If only the book is given, " + 
                        "you only  output the first verse of psalms. You always end your output asking " + 
